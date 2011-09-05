@@ -1,5 +1,5 @@
-Digestion
-=========
+Digestion (Asset Pipeline Fingerprinting Controls)
+==================================================
 
 The asset pipeline is a great new component of Rails 3.1. However it has a feature known as fingerprinting that makes it impossible to properly incorporate many popular JavaScript libraries (including [TinyMCE](http://tinymce.moxiecode.com/), [CKEditor](http://ckeditor.com/) and [FancyZoom](https://github.com/jnunemaker/fancy-zoom) to name just a few) into the asset pipeline.
 
@@ -24,7 +24,7 @@ Rails plugins can require this gem and set these options in an initializer, maki
 The Problem With Fingerprinting
 -------------------------------
 
-Fingerprinting is used to improve caching of assets by including a version-specific fingerprint in the asset filename. From the [Asset Pipeline Rails Guide](http://guides.rubyonrails.org/asset_pipeline.html#what-is-fingerprinting-and-why-should-i-care):
+Fingerprinting is used to improve caching of assets by including a version-specific fingerprint or digest in the asset filename. From the [Asset Pipeline Rails Guide](http://guides.rubyonrails.org/asset_pipeline.html#what-is-fingerprinting-and-why-should-i-care):
 
 > When a filename is unique and based on its content, HTTP headers can be set to encourage caches everywhere (at ISPs, in browsers) to keep their own copy of the content. When the content is updated, the fingerprint will change and the remote clients will request the new file. This is generally known as cachebusting.
 
