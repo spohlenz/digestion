@@ -1,7 +1,10 @@
 Rake::Task["assets:precompile"].clear
 
 def digest_path?(logical_path)
-  Rails.application.config.assets.digest && Rails.application.config.assets.digest_exclusions.none? do |path|
+  return false unless Rails.application.config.assets.digest
+  return true if Rails.application.config.assets.digest_exclusions.blank?
+  
+  Rails.application.config.assets.digest_exclusions.none? do |path|
     if path.is_a?(Regexp)
       # Match path against `Regexp`
       path.match(logical_path)
