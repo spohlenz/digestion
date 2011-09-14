@@ -8,7 +8,7 @@ module Digestion
     
     config.before_configuration do |app|
       # Initialize digest exclusions to an empty array
-      app.config.assets.digest_exclusions = []
+      app.config.assets.digest_exclusions ||= []
     end
   end
 end
