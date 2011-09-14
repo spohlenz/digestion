@@ -6,7 +6,8 @@ module Digestion
       load "digestion/assets.rake"
     end
     
-    initializer :setup_configuration, :before => :load_environment_config do |app|
+    config.before_configuration do |app|
+      # Initialize digest exclusions to an empty array
       app.config.assets.digest_exclusions = []
     end
   end
