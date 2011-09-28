@@ -60,4 +60,9 @@ class AssetPathsTest < ActionView::TestCase
     @config.assets.digest_exclusions << /logo/
     assert_equal "/assets/logo.png", asset_path("logo.png")
   end
+  
+  test "digest excluded by proc" do
+    @config.assets.digest_exclusions << Proc.new { |path| path.starts_with?("logo") }
+    assert_equal "/assets/logo.png", asset_path("logo.png")
+  end
 end

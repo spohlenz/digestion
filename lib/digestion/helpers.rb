@@ -44,6 +44,9 @@ private
       if path.is_a?(Regexp)
         # Match path against `Regexp`
         path.match(logical_path)
+      elsif path.is_a?(Proc)
+        # Match path against `Proc`
+        path.call(logical_path)
       else
         # Otherwise use fnmatch glob syntax
         File.fnmatch(path.to_s, logical_path)
