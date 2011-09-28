@@ -28,12 +28,16 @@ namespace :assets do
       Kernel.exec $0, *ARGV
     else
       Rake::Task["environment"].invoke
+      Rake::Task["tmp:cache:clear"].invoke
 
       # Ensure that action view is loaded and the appropriate sprockets hooks get executed
       ActionView::Base
 
       # Always compile files
       Rails.application.config.assets.compile = true
+
+      # Always ignore asset host
+      Rails.application.config.action_controller.asset_host = nil
 
       config = Rails.application.config
       env    = Rails.application.assets
