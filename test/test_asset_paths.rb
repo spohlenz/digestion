@@ -1,5 +1,6 @@
 require 'test_helper'
 require 'sprockets'
+require 'mocha'
 
 class AssetPathsTest < ActionView::TestCase
   tests Sprockets::Helpers::RailsHelper

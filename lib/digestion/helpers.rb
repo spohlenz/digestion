@@ -11,6 +11,7 @@ Sprockets::Helpers::RailsHelper.module_eval do
   end
 
 private
+  remove_method(:digest_assets?) if private_method_defined?(:digest_assets?)
   def digest_assets?
     Rails.application.config.assets.digest
   end
@@ -21,7 +22,8 @@ private
 end
 
 Sprockets::Helpers::RailsHelper::AssetPaths.class_eval do
-  attr_accessor :digest_assets, :digest_exclusions
+  attr_accessor :digest_assets unless method_defined?(:digest_assets)
+  attr_accessor :digest_exclusions
   
   alias_method :original_digest_for, :digest_for
   
