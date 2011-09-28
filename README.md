@@ -15,7 +15,7 @@ Add the following line to your Gemfile and run `bundle install`:
 
 The `digestion` gem does not change any fingerprinting options by default but allows you to set the following options in your application configuration:
 
-    # Exclude specific assets from fingerprinting (use a path, glob or regex)
+    # Exclude specific assets from fingerprinting (use a path, glob, regex or proc)
     config.assets.digest_exclusions << "nofingerprints/*"
 
 Rails plugins can require this gem and set these options in an initializer, making the whole process transparent to the end-developer. See the [tinymce-rails](https://github.com/spohlenz/tinymce-rails) project for an example of this.
