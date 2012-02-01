@@ -1,3 +1,5 @@
+**NOTE: This project is no longer necessary as of Rails 3.1.1 and should be considered deprecated. The Rails asset pipeline now compiles asset files both with and without digests.**
+
 Digestion (Asset Pipeline Fingerprinting Controls)
 ==================================================
 
